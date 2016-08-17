@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    //修改生成的apk名字
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def oldFile = output.outputFile
+            if (variant.buildType.name.equals('release')) {
+//                println(variant.productFlavors[1].name) // '-' + variant.productFlavors[0].name + (渠道)
+                def releaseApkName = 'ZS-' + defaultConfig.versionName + '.apk'
+                output.outputFile = new File(oldFile.parent, releaseApkName)
+            }
+            if (variant.buildType.name.equals('beta')) {
+                def betaName = oldFile.name.replace(".apk", "-v" + "-build.apk")
+                output.outputFile = new File(oldFile.parent, betaName)
+            }
+            if (variant.buildType.name.equals('debug')) {
+            }
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.ybg.rp.assistant"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile project(':yabase')
+    compile 'org.xutils:xutils:3.3.36'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile files('libs/zxing.jar')
+}

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@mipmap/home_bg">
+
+    <LinearLayout
+        android:id="@+id/homeTop"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="@dimen/normal_margin"
+        android:orientation="vertical"
+        android:background="@drawable/home_top_bg"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/moneyNotice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="2016-01-01 0元，比2016-01-01 0元提升0%。"
+            android:textColor="#eee8ae"/>
+        <TextView
+            android:id="@+id/countNotice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:text="2016-01-01 0次，比2016-01-01 0次提升0%。"
+            android:textColor="#eee8ae"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/viewMiddle"
+        android:layout_width="@dimen/normal_margin"
+        android:layout_height="match_parent"
+        android:layout_below="@id/homeTop"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/homeTop"
+        android:layout_toLeftOf="@id/viewMiddle"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/small_margin"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/home_bh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/home_bh_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:onClick="bhControl">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/home_bh" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="商品补货"
+                android:textColor="#eee8ae"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/home_qh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_weight="1"
+            android:background="@drawable/home_qh_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:onClick="qhControl">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/home_qh" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="缺货详情"
+                android:textColor="#eee8ae"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/home_gz"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_weight="1"
+            android:background="@drawable/home_gz_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:onClick="gzControl">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/home_gz" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="设备故障"
+                android:textColor="#eee8ae"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/homeTop"
+        android:layout_toRightOf="@id/viewMiddle"
+        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginBottom="@dimen/small_margin"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/home_xs"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/home_xs_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:onClick="xsControl">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/home_xs" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="销售收入"
+                android:textColor="#eee8ae"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/home_fx"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_weight="1"
+            android:background="@drawable/home_fx_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:onClick="fxControl">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/home_fx" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="数据分析"
+                android:textColor="#eee8ae"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/home_fq"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_weight="1"
+            android:background="@drawable/home_fq_bg"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:onClick="fqControl">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/home_fq" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="顾客反馈"
+                android:textColor="#eee8ae"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

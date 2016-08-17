@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="theme-color" content="#3F51B5">
+    <title>商品补货</title>
+    <link rel="stylesheet" href="../../css/framework7.material.min.css">
+    <link rel="stylesheet" href="../../css/framework7.material.colors.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../css/my-app.css">
+</head>
+<body>
+<div class="statusbar-overlay"></div>
+<div class="panel-overlay"></div>
+<div class="views">
+    <div class="view view-main">
+        <div class="pages navbar-fixed">
+
+        </div>
+    </div>
+</div>
+<div class="popover popover-full popover_menu" id="menu1">
+    <div class="popover-inner">
+        <div class="list-block media-list">
+            <ul>
+                <li class="item-content">
+                    <div class="item-inner" onclick="openNumWin(1)">
+                        <div class="item-title-row">
+                            <div class="item-title">设置数量</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title-row" onclick="openGoodsWin(1)">
+                            <div class="item-title">设置商品</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title-row" onclick="openDoor()">
+                            <div class="item-title">开指定门</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title-row" onclick="openEmptyDoor()">
+                            <div class="item-title">开空柜门</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="popover popover-normal popover_menu" id="menu2">
+    <div class="popover-inner">
+        <div class="list-block media-list">
+            <ul>
+                <li class="item-content">
+                    <div class="item-inner" onclick="openNumWin(2)">
+                        <div class="item-title-row">
+                            <div class="item-title">设置数量</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title-row" onclick="openGoodsWin(2)">
+                            <div class="item-title">设置商品</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="picker-modal num-picker-info">
+    <div class="toolbar">
+        <div class="toolbar-inner">
+            <div class="left">
+                <a href="#" class="close-picker" style="color: white;">&nbsp;&nbsp;&nbsp;&nbsp;取消</a>
+            </div>
+            <div class="right" onclick="setGoodsNum()">
+                <a href="#" class="close-picker" style="color: white;">确定&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            </div>
+        </div>
+    </div>
+    <div class="picker-modal-inner">
+        <div class="content-block">
+            <h4>请选择数量</h4>
+            <div>
+                <div class="row">
+                    <div class="col-20">
+                        <div class="goods-num"><p>0</p></div>
+                    </div>
+                    <div class="col-20">
+                        <div class="goods-num"><p>1</p></div>
+                    </div>
+                    <div class="col-20">
+                        <div class="goods-num"><p>2</p></div>
+                    </div>
+                    <div class="col-20">
+                        <div class="goods-num"><p>3</p></div>
+                    </div>
+                    <div class="col-20">
+                        <div class="goods-num"><p>4</p></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-20">
+                        <div class="goods-num"><p>5</p></div>
+                    </div>
+                    <div class="col-20">
+                        <div class="goods-num"><p>6</p></div>
+                    </div>
+                    <div class="col-20">
+                        <div class="goods-num"><p>7</p></div>
+                    </div>
+                    <div class="col-20">
+                        <div class="goods-num"><p>8</p></div>
+                    </div>
+                    <div class="col-20">
+                        <div class="goods-num"><p>9</p></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-20">
+                        <div class="goods-num"><p>10</p></div>
+                    </div>
+                    <div class="col-20">
+                        <div class="goods-num"><p>11</p></div>
+                    </div>
+                    <div class="col-20">
+                        <div class="goods-num"><p>12</p></div>
+                    </div>
+                    <div class="col-20">
+                        <div class="goods-num"><p>13</p></div>
+                    </div>
+                    <div class="col-20">
+                        <div class="goods-num"><p>14</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Services Popup -->
+<div class="popup popup-goods">
+    <div class="content-block">
+        <div class="page-content contacts-content">
+            <div class="list-block contacts-block" id="goodsList">
+                加载中，请稍候...
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../js/framework7.min.js"></script>
+<script type="text/javascript" src="../../js/my-app.js"></script>
+<script type="text/javascript" src="../../js/goodsManage.js"></script>
+</body>
+</html>
