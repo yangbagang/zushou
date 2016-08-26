@@ -144,7 +144,7 @@ public class VMLoginActivity extends Activity implements View.OnClickListener {
                     if ("true".equals(json.getString("success"))) {
                         appUtil.showMessage(VMLoginActivity.this, "扫描成功");
                     } else {
-                        appUtil.showMessage(VMLoginActivity.this, json.getString("success"));
+                        appUtil.showMessage(VMLoginActivity.this, json.getString("msg"));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

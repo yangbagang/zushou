@@ -296,7 +296,8 @@ function updateCabinetGoods(index, dataList) {
             } else {
                 isEmpty = '';
             }
-            s += createInfoDiv(value.id, value.orbitalNo, value.goodsName, snum, value.standardPrice, isEmpty);
+            s += createInfoDiv(value.lid, value.orbitalNo, value.goodsName, snum, value
+            .standardPrice, isEmpty);
             if (index % 4 == 3) {
                 s += '</div>';
             }
