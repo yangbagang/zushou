@@ -43,6 +43,7 @@
         <activity android:name=".activity.VMLoginActivity" />
         <activity android:name=".activity.GoodsManagerActivity" />
         <activity android:name=".activity.SaleDetailActivity" />
+        <activity android:name=".activity.QueHuoActivity" />
     </application>
 
 </manifest>

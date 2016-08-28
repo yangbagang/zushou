@@ -34,10 +34,11 @@ function manageGoods(id) {
 }
 
 // 调试用数据，完成后删除。
-//basePath = 'http://192.168.12.102:8080/';
+//basePath = 'http://192.168.100.9:8080/';
 //token = 'e07e054dfc57bf5401088582da1feba9631ab0732f82ad0fbd92b388b1e1d696';
 var isPortrait = window.screen.height > window.screen.width;
 var layers = '';
+var trackNos = '';
 var storeId = 0;
 var tabIndex = 1;
 
@@ -105,6 +106,7 @@ function infoDivSelect() {
         } else {
             $$(this).addClass("checked");
         }
+        setTrackNo();
     });
 }
 
@@ -153,6 +155,7 @@ function updateTabShowEvent(subList){
     $$("#tab1").on("show", function() {
         updateFloatingAction(0);
         tabIndex = 1;
+        setTrackNo();
     });
     $$.each(subList, function(index, value){
         $$("#tab" + (index + 2)).on("show", function() {
@@ -166,6 +169,7 @@ function updateTabShowEvent(subList){
                 cabArray[index] = value.layer;
             }
             tabIndex = index + 2;
+            setTrackNo();
         });
     });
 }
@@ -494,7 +498,7 @@ function openDoor() {
         return;
     }
     var url = basePath + "vendLayerTrackGoods/openDoor";
-    var params = {token: token, trackNos: layers, themeStoreId: storeId};
+    var params = {token: token, trackNos: trackNos, themeStoreId: storeId};
     myApp.confirm('此操作可能会造成商品丢失，是否确认此操作？', '重要提示',
         function () {
            $$.postJSON(url, params, function(data){
@@ -559,4 +563,24 @@ function setGoodsSelectedEvent() {
         setGoods(gid);
         myApp.closeModal(".popup-goods");
     });
+}
+
+function setTrackNo() {
+    var s = '';
+    var selectedInfo = $$("#tab" + tabIndex).find(".s_info.checked");
+    $$(selectedInfo).each(function(){
+        var trackNo = $$(this).find("h3")[0].innerText;
+        console.log(trackNo);
+        if (s == '') {
+            s = trackNo;
+        } else {
+            s += ',' + trackNo;
+        }
+    });
+    trackNos = s;
+    if (s == '') {
+        $$("#trackNoDiv").html('尚未选择。');
+    } else {
+        $$("#trackNoDiv").html('己选择：'+s);
+    }
 }
