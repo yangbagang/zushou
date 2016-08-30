@@ -66,10 +66,10 @@ function searchQueHuoData() {
     var params = {token:token, storeId:storeId};
     $$.postJSON(url, params, function(data){
         isLoading = false;
+        myApp.pullToRefreshDone();
         if (data.success) {
             //断路检查
             if (data.dataList.length == 0) {
-                myApp.pullToRefreshDone();
                 myApp.alert("没有相关数据", "提示");
                 return;
             }

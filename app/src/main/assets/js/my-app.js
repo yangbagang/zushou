@@ -1,7 +1,7 @@
 // Initialize your app
 var myApp = new Framework7({
     // If it is webapp, we can enable hash navigation:
-    pushState: true,
+    //pushState: true,
     material: true,
     showBarsOnPageScrollEnd: false,
     // Hide and show indicator during ajax requests
