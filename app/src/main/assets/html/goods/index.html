@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="theme-color" content="#2196f3">
+    <title>商品分析</title>
+    <link rel="stylesheet" href="../../css/framework7.material.min.css">
+    <link rel="stylesheet" href="../../css/framework7.material.colors.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../css/my-app.css">
+</head>
+<body>
+<div class="statusbar-overlay"></div>
+<div class="panel-overlay"></div>
+<div class="panel panel-left panel-cover">
+    <div class="view navbar-fixed">
+        <div class="pages">
+            <div data-page="panel-left" class="page">
+                <div class="navbar bg-primary">
+                    <div class="navbar-inner">
+                        <div class="center">主题店</div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="content-block">
+                        <p>请选择需要查看的主题店数据，默认选择全部。</p>
+                    </div>
+                    <div class="content-block-title">
+                        <input type="checkbox" checked="checked" id="checkedAll"
+                               onclick="selectAllStores()">全选
+                    </div>
+                    <div class="list-block media-list" id="storeList">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <input type="checkbox" value="1" checked="checked"
+                                               name="sid">
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">主题店名</div>
+                                        <div class="item-text">地址</div>
+                                    </div>
+                                </div></li>
+                        </ul>
+                    </div>
+                    <div class="content-block" onclick="setSelectedStore()">
+                        <p class="buttons-row">
+                            <a href="#"
+                               class="button button-raised button-fill color-orange ripple-green close-panel">确定</a>
+                            <a href="#"
+                               class="button button-raised button-fill color-gray ripple-green close-panel">取消</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="views">
+    <div class="view view-main">
+        <div class="pages navbar-fixed">
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../js/framework7.min.js"></script>
+<script type="text/javascript" src="../../js/my-app.js"></script>
+<script type="text/javascript" src="../../js/goods.js"></script>
+</body>
+</html>

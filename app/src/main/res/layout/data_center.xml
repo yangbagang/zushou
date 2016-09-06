@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@mipmap/home_bg">
+
+    <View
+        android:id="@+id/middle"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true" />
+
+    <View
+        android:id="@+id/leftMiddle"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_toLeftOf="@id/middle"
+        android:layout_centerVertical="true" />
+
+    <View
+        android:id="@+id/rightMiddle"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_toRightOf="@id/middle"
+        android:layout_centerVertical="true" />
+
+    <LinearLayout
+        android:id="@+id/data_ss"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="@dimen/half_margin"
+        android:layout_toLeftOf="@id/middle"
+        android:layout_above="@id/leftMiddle"
+        android:background="@drawable/home_qh_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:onClick="ssControl">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/data_ss" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:text="今日数据"
+            android:textColor="#eee8ae"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/data_qs"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="@dimen/half_margin"
+        android:layout_toRightOf="@id/middle"
+        android:layout_above="@id/rightMiddle"
+        android:background="@drawable/home_qh_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:onClick="qsControl">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/home_fx" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:text="近期趋势"
+            android:textColor="#eee8ae"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/data_sp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="@dimen/half_margin"
+        android:layout_below="@id/leftMiddle"
+        android:layout_toLeftOf="@id/middle"
+        android:background="@drawable/home_gz_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:onClick="spControl">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/data_sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="商品分析"
+            android:textColor="#eee8ae"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/data_yh"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="@dimen/half_margin"
+        android:layout_below="@id/rightMiddle"
+        android:layout_toRightOf="@id/middle"
+        android:background="@drawable/home_gz_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:onClick="yhControl">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/data_yh" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="用户分析"
+            android:textColor="#eee8ae"
+            android:textSize="20sp" />
+    </LinearLayout>
+</RelativeLayout>

@@ -12,6 +12,7 @@
     <dimen name="normal_vertical_margin">16dp</dimen>
     <dimen name="normal_margin">16dp</dimen>
     <dimen name="small_margin">16dp</dimen>
+    <dimen name="half_margin">8dp</dimen>
     <dimen name="normal_elevation">8dp</dimen>
     <!-- 标题高度 -->
     <dimen name="titleBar_height_dimen">48dp</dimen>

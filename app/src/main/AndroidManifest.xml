@@ -44,6 +44,9 @@
         <activity android:name=".activity.GoodsManagerActivity" />
         <activity android:name=".activity.SaleDetailActivity" />
         <activity android:name=".activity.QueHuoActivity" />
+        <activity android:name=".activity.DataCenterActivity" />
+        <activity android:name=".activity.TodayDataActivity" />
+        <activity android:name=".activity.GoodsDataActivity" />
     </application>
 
 </manifest>

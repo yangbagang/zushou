@@ -1,0 +1,70 @@
+<div data-page="goods_analysis" class="page">
+    <div class="navbar bg-primary">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="close" class="back link icon-only">
+                    <i class="icon icon-back"></i></a>
+            </div>
+            <div class="center">商品分析</div>
+            <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+        </div>
+        <!-- Sub navbar -->
+        <div class="subnavbar bg-primary">
+            <div class="search-tool">
+                <input type="text" placeholder="开始时间" readonly="readonly" id="calendar-begin"
+                       class="date-input input-date">
+                -
+                <input type="text" placeholder="结束时间" readonly="readonly" id="calendar-end"
+                       class="date-input input-date">
+            </div>
+        </div>
+    </div>
+    <div data-distance="50"
+         class="page-content with-subnavbar">
+        <div class="content-block">
+            <div class="row">
+                <div class="col-50">
+                    <div class="total-data-title">销售件数</div>
+                    <div class="total-data-num" id="saleCount">0</div>
+                </div>
+                <div class="col-50">
+                    <div class="total-data-title">销售金额</div>
+                    <div class="total-data-num" id="saleMoney">0</div>
+                </div>
+            </div>
+            <br/>
+            <div>
+                <div>销售金额前3名的商品</div>
+                <div class="detail-table" id="detailTable1">
+                    <div class="detail-head">
+                        <div class="detail-cell goods-p-col1">序号</div>
+                        <div class="detail-cell goods-p-col2">商品</div>
+                        <div class="detail-cell goods-p-col3">金额</div>
+                        <div class="detail-cell goods-p-col4">件数</div>
+                    </div>
+                </div>
+                <br/>
+                <div>销售数量前3名的商品</div>
+                <div class="detail-table" id="detailTable2">
+                    <div class="detail-head">
+                        <div class="detail-cell goods-p-col1">序号</div>
+                        <div class="detail-cell goods-p-col2">商品</div>
+                        <div class="detail-cell goods-p-col3">件数</div>
+                        <div class="detail-cell goods-p-col4">金额</div>
+                    </div>
+                </div>
+                <br/>
+                <div class="content-block">
+                    <p class="buttons-row">
+                        <a href="#"
+                           class="button button-raised button-fill color-teal ripple-green"
+                           onclick="getGoodsMoneyList()">金额排行</a>
+                        <a href="#"
+                           class="button button-raised button-fill color-green ripple-green"
+                           onclick="getGoodsNumList()">数量排行</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
