@@ -216,9 +216,9 @@ function searchGoodsData(){
             $$.each(data.dataList, function(index, detail){
                 var r = '';
                 if (type == 1) {
-                    r = createTableRow(detail.goodsName, detail.transMoney2, detail.transMoney1);
+                    r = createTableRow(detail.goodsName, detail.money2, detail.money1);
                 } else {
-                    r = createTableRow(detail.goodsName, detail.transCn2, detail.transCn1);
+                    r = createTableRow(detail.goodsName, detail.num2, detail.num1);
                 }
                 s += r;
             });

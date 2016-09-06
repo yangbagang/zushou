@@ -2,10 +2,13 @@ package com.ybg.rp.assistant.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.menu.MenuBuilder;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.TextView;
 
 import com.ybg.rp.assistant.R;
@@ -21,6 +24,9 @@ import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
 public class HomeActivity extends AppCompatActivity {
 
     private AppUtil appUtil = AppUtil.getInstance();
@@ -34,6 +40,22 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.home_layout);
 
         initView();
+    }
+
+    @Override
+    protected boolean onPrepareOptionsPanel(View view, Menu menu) {
+        if (menu != null) {
+            if (menu.getClass() == MenuBuilder.class) {
+                try {
+                    Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
+                    m.setAccessible(true);
+                    m.invoke(menu, true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return super.onPrepareOptionsPanel(view, menu);
     }
 
     @Override
@@ -83,7 +105,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void fxControl(View view) {
-        appUtil.showMessage(HomeActivity.this, "正在开发中，请稍候。。。");
+        Intent intent = new Intent(HomeActivity.this, DataCenterActivity.class);
+        startActivity(intent);
     }
 
     public void fqControl(View view) {

@@ -136,7 +136,7 @@ function queryAnalysisData() {
                     var r = createMoneyTableRow(no, detail.goods_name, detail.money, detail.num);
                     s += r;
                 });
-                var t = createMoneyTableRow('合计', '', money, count);
+                var t = createMoneyTableRow('', '合计', money, count);
                 s += t;
             }
             $$("#detailTable1").html(s);
@@ -158,7 +158,7 @@ function queryAnalysisData() {
                     var r = createCountTableRow(no, detail.goods_name, detail.num, detail.money);
                     s += r;
                 });
-                var t = createMoneyTableRow('合计', '', count, money);
+                var t = createMoneyTableRow('', '合计', count, money);
                 s += t;
             }
             $$("#detailTable2").html(s);
