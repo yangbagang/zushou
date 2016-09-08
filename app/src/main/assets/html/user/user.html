@@ -1,0 +1,79 @@
+<div data-page="user_analysis" class="page">
+    <div class="navbar bg-primary">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="close" class="back link icon-only">
+                    <i class="icon icon-back"></i></a>
+            </div>
+            <div class="center">用户分析</div>
+            <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+        </div>
+        <!-- Sub navbar -->
+        <div class="subnavbar bg-primary">
+            <div class="search-tool">
+                <input type="text" placeholder="开始时间" readonly="readonly" id="calendar-begin"
+                       class="date-input input-date">
+                -
+                <input type="text" placeholder="结束时间" readonly="readonly" id="calendar-end"
+                       class="date-input input-date">
+            </div>
+        </div>
+    </div>
+    <div data-distance="50" class="page-content with-subnavbar hide-navbar-on-scroll">
+        <div class="content-block">
+            <div>
+                <div>新增用户情况</div>
+            </div>
+            <div>
+                <div class="detail-table">
+                    <div class="detail-row">
+                        <div class="detail-cell" id="newUserNum">新增用户数：0人</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-cell" id="newUserMoney">新增消费金额：0元</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-cell" id="newUserCount">新增消费数量：0次</div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div>
+                <div>老用户情况</div>
+            </div>
+            <div>
+                <div class="detail-table">
+                    <div class="detail-row">
+                        <div class="detail-cell" id="oldUserNum">老用户购买人数：0人</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-cell" id="oldUserMoney">老用户消费金额：0元</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-cell" id="oldUserCount">老用户消费数量：0次</div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div>
+                <div>消费次数分布</div>
+            </div>
+            <div>
+                <div id="countChartCanvas" style="width: '80%'; height: 350px;"></div>
+            </div>
+            <br/>
+            <div>
+                <div>消费金额分布</div>
+            </div>
+            <div>
+                <div id="moneyChartCanvas" style="width: '80%'; height: 350px;"></div>
+            </div>
+            <div>
+                <div>支付方式分布</div>
+            </div>
+            <div>
+                <div id="payChartCanvas" style="width: '80%'; height: 350px;"></div>
+            </div>
+        </div>
+    </div>
+</div>

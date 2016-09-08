@@ -9,4 +9,6 @@ public class Constants {
 
     public static String HOST = "http://183.57.41.230/ua/";
 
+    public static Integer MANAGE_ROLE = 1;
+
 }

@@ -7,6 +7,7 @@ import android.view.Window;
 
 import com.ybg.rp.assistant.R;
 import com.ybg.rp.assistant.app.YApp;
+import com.ybg.rp.assistant.utils.Constants;
 
 /**
  * Created by yangbagang on 16/8/9.
@@ -21,8 +22,13 @@ public class WelcomeActivity extends Activity {
 
         YApp app = (YApp) getApplication();
         if (app.hasLogin()) {
-            Intent intent = new Intent(this, HomeActivity.class);
-            startActivity(intent);
+            if (app.hasRight(Constants.MANAGE_ROLE)) {
+                //有管理权限进入主页
+                startActivity(new Intent(this, HomeActivity.class));
+            } else {
+                //没有则直接进入数据中心看数据
+                startActivity(new Intent(this, DataCenterActivity.class));
+            }
             finish();
         } else {
             Intent intent = new Intent(this, LoginActivity.class);

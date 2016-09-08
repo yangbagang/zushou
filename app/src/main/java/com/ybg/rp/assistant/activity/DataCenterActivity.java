@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.ybg.rp.assistant.R;
+import com.ybg.rp.assistant.app.YApp;
+import com.ybg.rp.assistant.utils.Constants;
 import com.ybg.rp.yabase.utils.AppUtil;
 
 /**
@@ -16,16 +18,19 @@ import com.ybg.rp.yabase.utils.AppUtil;
  */
 public class DataCenterActivity extends AppCompatActivity {
 
-    private AppUtil appUtil = AppUtil.getInstance();
+    //private AppUtil appUtil = AppUtil.getInstance();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.data_center);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle("数据分析");
+        YApp app = (YApp) getApplication();
+        if (app.hasRight(Constants.MANAGE_ROLE)) {
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("数据分析");
+        }
     }
 
     @Override
@@ -44,7 +49,8 @@ public class DataCenterActivity extends AppCompatActivity {
     }
 
     public void qsControl(View view) {
-        appUtil.showMessage(DataCenterActivity.this, "正在开发中，请稍候。。。");
+        Intent intent = new Intent(DataCenterActivity.this, DataChartActivity.class);
+        startActivity(intent);
     }
 
     public void spControl(View view) {
@@ -53,7 +59,8 @@ public class DataCenterActivity extends AppCompatActivity {
     }
 
     public void yhControl(View view) {
-        appUtil.showMessage(DataCenterActivity.this, "正在开发中，请稍候。。。");
+        Intent intent = new Intent(DataCenterActivity.this, UserDataActivity.class);
+        startActivity(intent);
     }
 
 }

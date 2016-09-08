@@ -90,4 +90,13 @@ public class PartnerUser {
     /** 头像*/
     private String avatarUrl;
 
+    private Integer role;//权限值
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
+    }
 }

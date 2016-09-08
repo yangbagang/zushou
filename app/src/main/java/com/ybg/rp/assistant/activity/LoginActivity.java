@@ -77,14 +77,21 @@ public class LoginActivity extends Activity {
                     JSONObject json = new JSONObject(s);
                     if(json.getString("success").equals("true")) {
                         String token = json.getString("token");
+                        Integer role = json.getInt("role");
                         YApp yApp = (YApp) getApplication();
                         yApp.setToken(token);      //保存token
+                        yApp.setRole(role);
 
                         String userInfo = json.getString("userInfo");
                         PartnerUser user = GsonUtil.createGson().fromJson(userInfo, PartnerUser.class);
                         saveUserInfo(user);//保存用户信息
                         if (token != null) {
-                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));  //进入主页
+                            if (yApp.hasRight(Constants.MANAGE_ROLE)) {
+                                startActivity(new Intent(LoginActivity.this, HomeActivity.class));  //进入主页
+                            } else {
+                                startActivity(new Intent(LoginActivity.this,
+                                        DataCenterActivity.class));//进入数据中心
+                            }
                             appUtil.showMessage(LoginActivity.this, "登录成功!");
                             finish();
                         } else {
@@ -121,11 +128,12 @@ public class LoginActivity extends Activity {
     //保存用户参数
     public void saveUserInfo(PartnerUser user) {
         AppPreferences preferences = AppPreferences.getInstance();
-        preferences.setString("operatorId", user.getId() + "");
+        preferences.setInt("operatorId", user.getId().intValue());
         preferences.setString("username", user.getUsername());
         preferences.setString("realName", user.getRealName());
         preferences.setString("email", user.getEmail());
         preferences.setString("avatar", user.getAvatarUrl());
+        preferences.setInt("role", user.getRole());
         LogUtil.i("登录", "用户数据保存成功");
     }
 }
