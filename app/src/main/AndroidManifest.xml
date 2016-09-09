@@ -47,6 +47,8 @@
         <activity android:name=".activity.DataCenterActivity" />
         <activity android:name=".activity.TodayDataActivity" />
         <activity android:name=".activity.GoodsDataActivity" />
+        <activity android:name=".activity.DataChartActivity" />
+        <activity android:name=".activity.UserDataActivity" />
     </application>
 
 </manifest>

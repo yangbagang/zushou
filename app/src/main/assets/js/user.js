@@ -17,10 +17,10 @@ var option = {
                 name:'',
                 type:'pie',
                 radius: ['50%', '70%'],
-                avoidLabelOverlap: true,
+                avoidLabelOverlap: false,
                 label: {
                     normal: {
-                        show: true,
+                        show: false,
                         position: 'center'
                     },
                     emphasis: {
@@ -196,6 +196,11 @@ function countChart() {
             var num4 = dataList[1].num;
             var num5 = dataList[1].num;
             nchart.setOption({
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data:['1次','2-3次','4-5次','6-10次','10次以上']
+                },
                 series: [{
                     name: '消费次数分布',
                     data: [
@@ -229,6 +234,11 @@ function moneyChart() {
             var num4 = dataList[1].num;
             var num5 = dataList[1].num;
             mchart.setOption({
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data:['10元以下','10元至50元','50元至100元','100元至200元','200元以上']
+                },
                 series: [{
                     name: '消费金额分布',
                     data: [
@@ -259,6 +269,11 @@ function payChart() {
             var zfb = dataList[0].num;
             var wx = dataList[1].num;
             pchart.setOption({
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data:['支付宝','微信']
+                },
                 series: [{
                     name: '支付方式对比',
                     data: [
