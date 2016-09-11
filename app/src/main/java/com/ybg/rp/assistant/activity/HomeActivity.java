@@ -2,13 +2,11 @@ package com.ybg.rp.assistant.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.MenuBuilder;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.TextView;
 
 import com.ybg.rp.assistant.R;
@@ -24,7 +22,6 @@ import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 public class HomeActivity extends AppCompatActivity {
@@ -74,11 +71,7 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         } else if (id == R.id.action_exit) {
-            YApp app = (YApp) getApplication();
-            app.setToken("");
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-            finish();
+            logout();
             return true;
         }
 
@@ -162,6 +155,49 @@ public class HomeActivity extends AppCompatActivity {
             public void onError(Throwable throwable, boolean b) {
                 LogUtil.i("#HomeActivity:", throwable.getMessage());
                 appUtil.showMessage(HomeActivity.this, "获取数据异常,请稍后重试。");
+            }
+
+            @Override
+            public void onCancelled(CancelledException e) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
+    private void logout() {
+        String url = Constants.HOST + "/partnerUserInfo/logout";
+        RequestParams params = new RequestParams(url);
+        params.addBodyParameter("token", ((YApp) getApplication()).getToken());
+        x.http().post(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String s) {
+                LogUtil.i("#HomeActivity:", s);
+                try {
+                    JSONObject json = new JSONObject(s);
+                    if (json.getString("success").equals("true")) {
+                        appUtil.showMessage(HomeActivity.this, "您己安全退出。");
+                    } else {
+                        appUtil.showMessage(HomeActivity.this, json.getString("msg"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                YApp app = (YApp) getApplication();
+                app.setToken("");
+                app.setRoles("");
+                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                finish();
+            }
+
+            @Override
+            public void onError(Throwable throwable, boolean b) {
+                LogUtil.i("#HomeActivity:", throwable.getMessage());
+                appUtil.showMessage(HomeActivity.this, "退出异常,请稍后重试。");
             }
 
             @Override

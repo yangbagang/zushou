@@ -1,33 +1,38 @@
 package com.ybg.rp.assistant.app;
 
+import android.text.TextUtils;
+
 import com.ybg.rp.yabase.app.YbgAPP;
 
 import org.xutils.x;
+
+import java.util.Arrays;
 
 /**
  * Created by yangbagang on 16/8/9.
  */
 public class YApp extends YbgAPP {
 
-    private Integer role;
+    private String roles;
 
-    public Integer getRole() {
-        return role;
+    public String getRoles() {
+        return roles;
     }
 
-    public void setRole(Integer role) {
-        this.role = role;
+    public void setRoles(String roles) {
+        this.roles = roles;
     }
 
-    public boolean hasRight(Integer right) {
-        //return (role & right) != 0;
-        return true;//暂时屏蔽权限控制
+    public boolean hasRole(String role) {
+        if (TextUtils.isEmpty(roles) || TextUtils.isEmpty(role)) {
+            return false;
+        }
+        return Arrays.asList(roles.split(",")).contains(role);
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
         x.Ext.init(this);
-        //x.Ext.setDebug(BuildConfig.DEBUG); // 是否输出debug日志, 开启debug会影响性能.
     }
 }

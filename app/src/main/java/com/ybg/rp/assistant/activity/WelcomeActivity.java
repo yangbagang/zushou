@@ -22,7 +22,7 @@ public class WelcomeActivity extends Activity {
 
         YApp app = (YApp) getApplication();
         if (app.hasLogin()) {
-            if (app.hasRight(Constants.MANAGE_ROLE)) {
+            if (app.hasRole(Constants.MANAGE_ROLE)) {
                 //有管理权限进入主页
                 startActivity(new Intent(this, HomeActivity.class));
             } else {

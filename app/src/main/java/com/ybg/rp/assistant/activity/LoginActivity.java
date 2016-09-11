@@ -77,16 +77,14 @@ public class LoginActivity extends Activity {
                     JSONObject json = new JSONObject(s);
                     if(json.getString("success").equals("true")) {
                         String token = json.getString("token");
-                        Integer role = json.getInt("role");
                         YApp yApp = (YApp) getApplication();
                         yApp.setToken(token);      //保存token
-                        yApp.setRole(role);
 
                         String userInfo = json.getString("userInfo");
                         PartnerUser user = GsonUtil.createGson().fromJson(userInfo, PartnerUser.class);
                         saveUserInfo(user);//保存用户信息
                         if (token != null) {
-                            if (yApp.hasRight(Constants.MANAGE_ROLE)) {
+                            if (yApp.hasRole(Constants.MANAGE_ROLE)) {
                                 startActivity(new Intent(LoginActivity.this, HomeActivity.class));  //进入主页
                             } else {
                                 startActivity(new Intent(LoginActivity.this,
@@ -133,7 +131,8 @@ public class LoginActivity extends Activity {
         preferences.setString("realName", user.getRealName());
         preferences.setString("email", user.getEmail());
         preferences.setString("avatar", user.getAvatarUrl());
-        preferences.setInt("role", user.getRole());
+        YApp yApp = (YApp) getApplication();
+        yApp.setRoles(user.getRoles());
         LogUtil.i("登录", "用户数据保存成功");
     }
 }

@@ -5,10 +5,10 @@ package com.ybg.rp.assistant.utils;
  */
 public class Constants {
 
-    //public static String HOST = "http://192.168.12.100:8080/ua/";
+    public static String HOST = "http://192.168.100.9:8080/";
 
-    public static String HOST = "http://183.57.41.230/ua/";
+    //public static String HOST = "http://183.57.41.230/ua/";
 
-    public static Integer MANAGE_ROLE = 1;
+    public static String MANAGE_ROLE = "ROLE_MANAGE";
 
 }
