@@ -78,6 +78,9 @@ public class DataCenterActivity extends AppCompatActivity {
             case R.id.action_exit:
                 logout();
                 return true;
+            case R.id.action_detail:
+                startActivity(new Intent(DataCenterActivity.this, SaleDetailActivity.class));
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -114,8 +117,6 @@ public class DataCenterActivity extends AppCompatActivity {
                     JSONObject json = new JSONObject(s);
                     if (json.getString("success").equals("true")) {
                         appUtil.showMessage(DataCenterActivity.this, "您己安全退出。");
-                    } else {
-                        appUtil.showMessage(DataCenterActivity.this, json.getString("msg"));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

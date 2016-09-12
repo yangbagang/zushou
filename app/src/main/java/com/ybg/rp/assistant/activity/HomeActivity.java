@@ -181,8 +181,6 @@ public class HomeActivity extends AppCompatActivity {
                     JSONObject json = new JSONObject(s);
                     if (json.getString("success").equals("true")) {
                         appUtil.showMessage(HomeActivity.this, "您己安全退出。");
-                    } else {
-                        appUtil.showMessage(HomeActivity.this, json.getString("msg"));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -197,7 +195,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onError(Throwable throwable, boolean b) {
                 LogUtil.i("#HomeActivity:", throwable.getMessage());
-                appUtil.showMessage(HomeActivity.this, "退出异常,请稍后重试。");
             }
 
             @Override
