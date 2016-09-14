@@ -13,17 +13,16 @@ import java.util.Arrays;
  */
 public class YApp extends YbgAPP {
 
-    private String roles;
-
     public String getRoles() {
-        return roles;
+        return preference.getString("roles", "");
     }
 
     public void setRoles(String roles) {
-        this.roles = roles;
+        preference.setString("roles", roles);
     }
 
     public boolean hasRole(String role) {
+        String roles = getRoles();
         if (TextUtils.isEmpty(roles) || TextUtils.isEmpty(role)) {
             return false;
         }
@@ -35,4 +34,5 @@ public class YApp extends YbgAPP {
         super.onCreate();
         x.Ext.init(this);
     }
+
 }

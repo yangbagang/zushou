@@ -9,6 +9,7 @@ import android.support.v7.view.menu.MenuBuilder;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.ybg.rp.assistant.R;
 import com.ybg.rp.assistant.app.YApp;
@@ -37,10 +38,17 @@ public class DataCenterActivity extends AppCompatActivity {
         setContentView(R.layout.data_center);
 
         YApp app = (YApp) getApplication();
+        LinearLayout xs = (LinearLayout) findViewById(R.id.data_xs);
+        LinearLayout yh = (LinearLayout) findViewById(R.id.data_yh);
         if (app.hasRole(Constants.MANAGE_ROLE)) {
             ActionBar actionBar = getSupportActionBar();
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setTitle("数据分析");
+            yh.setVisibility(View.VISIBLE);
+            xs.setVisibility(View.GONE);
+        } else {
+            yh.setVisibility(View.GONE);
+            xs.setVisibility(View.VISIBLE);
         }
     }
 
@@ -78,9 +86,6 @@ public class DataCenterActivity extends AppCompatActivity {
             case R.id.action_exit:
                 logout();
                 return true;
-            case R.id.action_detail:
-                startActivity(new Intent(DataCenterActivity.this, SaleDetailActivity.class));
-                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -102,6 +107,11 @@ public class DataCenterActivity extends AppCompatActivity {
 
     public void yhControl(View view) {
         Intent intent = new Intent(DataCenterActivity.this, UserDataActivity.class);
+        startActivity(intent);
+    }
+
+    public void xsControl(View view) {
+        Intent intent = new Intent(DataCenterActivity.this, SaleDetailActivity.class);
         startActivity(intent);
     }
 

@@ -124,4 +124,29 @@
             android:textColor="#eee8ae"
             android:textSize="20sp" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/data_xs"
+        android:layout_width="220dp"
+        android:layout_height="120dp"
+        android:layout_margin="@dimen/half_margin"
+        android:layout_below="@id/rightMiddle"
+        android:layout_toRightOf="@id/middle"
+        android:background="@drawable/home_gz_bg"
+        android:gravity="center"
+        android:onClick="xsControl">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/home_xs" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/small_margin"
+            android:text="销售收入"
+            android:textColor="#eee8ae"
+            android:textSize="20sp" />
+    </LinearLayout>
 </RelativeLayout>
