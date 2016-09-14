@@ -11,7 +11,7 @@ import com.ybg.rp.yabase.utils.AppPreferences;
  */
 public class YbgAPP extends Application {
 
-    private AppPreferences preference = AppPreferences.getInstance();
+    protected AppPreferences preference = AppPreferences.getInstance();
 
     private double longitude = 0;
 
