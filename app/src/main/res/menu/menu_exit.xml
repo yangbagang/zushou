@@ -1,9 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/action_about"
+        android:icon="@mipmap/about"
+        android:orderInCategory="200"
+        android:title="关于"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_exit"
         android:icon="@mipmap/exit"
-        android:orderInCategory="100"
-        android:title="退出系统"
+        android:orderInCategory="300"
+        android:title="退出"
         app:showAsAction="never" />
 </menu>

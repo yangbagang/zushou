@@ -519,8 +519,9 @@ function openEmptyDoor() {
     //关闭弹窗
     myApp.closeModal($$("#menu1"));
     var url = basePath + "vendLayerTrackGoods/openEmptyDoor";
-    //找到当前层
-    var sid = $$("#deviceTab").find(".tab-link.active")[0].data("id");
+    //找到当前格子柜
+    var cabinet = $$("#deviceTab").find(".tab-link.active")[0];
+    var sid = $$(cabinet).data("id");
     var params = {token: token, sid: sid, themeStoreId: storeId};
     myApp.confirm('此操作可能会造成商品丢失，是否确认此操作？', '重要提示',
         function () {

@@ -73,6 +73,9 @@ public class HomeActivity extends AppCompatActivity {
         } else if (id == R.id.action_exit) {
             logout();
             return true;
+        } else if (id == R.id.action_about) {
+            startActivity(new Intent(this, AboutActivity.class));
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

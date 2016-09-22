@@ -86,6 +86,9 @@ public class DataCenterActivity extends AppCompatActivity {
             case R.id.action_exit:
                 logout();
                 return true;
+            case R.id.action_about:
+                startActivity(new Intent(this, AboutActivity.class));
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

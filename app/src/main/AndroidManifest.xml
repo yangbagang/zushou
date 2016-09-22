@@ -49,6 +49,8 @@
         <activity android:name=".activity.GoodsDataActivity" />
         <activity android:name=".activity.DataChartActivity" />
         <activity android:name=".activity.UserDataActivity" />
+        <activity android:name=".activity.AboutActivity" />
+        <activity android:name=".activity.DeviceActivity" />
     </application>
 
 </manifest>
