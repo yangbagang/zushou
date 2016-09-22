@@ -87,7 +87,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void gzControl(View view) {
-        appUtil.showMessage(HomeActivity.this, "正在开发中，请稍候。。。");
+        Intent intent = new Intent(HomeActivity.this, DeviceActivity.class);
+        startActivity(intent);
     }
 
     public void qhControl(View view) {
