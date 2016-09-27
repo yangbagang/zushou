@@ -34,14 +34,13 @@ function manageGoods(id) {
 }
 
 // 调试用数据，完成后删除。
-//basePath = 'http://192.168.100.9:8080/';
+//basePath = 'http://192.168.12.101:8080/';
 //token = 'e07e054dfc57bf5401088582da1feba9631ab0732f82ad0fbd92b388b1e1d696';
 var isPortrait = window.screen.height > window.screen.width;
 var layers = '';
 var trackNos = '';
 var storeId = 0;
 var tabIndex = 1;
-
 //子柜、副机数组，防止重复初始化
 var cabArray = new Array();
 
