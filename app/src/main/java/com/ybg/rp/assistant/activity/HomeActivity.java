@@ -107,7 +107,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void fqControl(View view) {
-        appUtil.showMessage(HomeActivity.this, "正在开发中，请稍候。。。");
+        Intent intent = new Intent(HomeActivity.this, FeedbackActivity.class);
+        startActivity(intent);
     }
 
     private void initView() {

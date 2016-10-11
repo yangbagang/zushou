@@ -51,6 +51,7 @@
         <activity android:name=".activity.UserDataActivity" />
         <activity android:name=".activity.AboutActivity" />
         <activity android:name=".activity.DeviceActivity" />
+        <activity android:name=".activity.FeedbackActivity" />
     </application>
 
 </manifest>
