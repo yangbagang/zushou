@@ -1,5 +1,5 @@
-basePath = 'http://192.168.12.101:8080/ua/';
-token = 'e07e054dfc57bf5401088582da1feba9631ab0732f82ad0fbd92b388b1e1d696';
+//basePath = 'http://192.168.12.101:8080/ua/';
+//token = 'e07e054dfc57bf5401088582da1feba9631ab0732f82ad0fbd92b388b1e1d696';
 var isPortrait = window.screen.height > window.screen.width;
 
 // 加载销售页面
