@@ -5,7 +5,7 @@ var isPortrait = window.screen.height > window.screen.width;
 // 加载销售页面
 mainView.loadPage("list.html");
 
-var flag = 9;
+var flag = 0;
 var hasMore = true;
 var isLoading = false;
 var pageNum = 1;

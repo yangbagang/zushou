@@ -243,7 +243,7 @@ function getSubCabinetGoods(index, sid) {
             } else if (data.dataList.length == 88) {
                 updateCabinetGoods2(index, data.dataList);
             } else {//更新副机数据
-                updateTabContent(index, data.dataList);
+                updateCabinetGoods2(index, data.dataList);
             }
 
             //选中事件

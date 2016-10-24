@@ -5,7 +5,7 @@ package com.ybg.rp.assistant.utils;
  */
 public class Constants {
 
-    //public static String HOST = "http://192.168.12.101:8080/";
+    //public static String HOST = "http://192.168.12.100:8080/";
 
     public static String HOST = "http://183.57.41.230/ua/";
 
