@@ -23,7 +23,8 @@ public class SaleDetailActivity extends ActivityWebViewExtra {
         initWebSetting(webView);
         YApp app = (YApp) getApplication();
         String url = "file:///android_asset/html/sale/index.html?server=" +
-                Constants.HOST + "&token=" + app.getToken();
+                Constants.HOST + "&token=" + app.getToken() + "&orientationChanged=" + orientationChanged;
+        System.out.println("orientationChanged=" + orientationChanged);
         loadUrl(webView, url);
     }
 

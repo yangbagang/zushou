@@ -2,19 +2,35 @@ package com.ybg.rp.yabase.activity;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
-import android.view.KeyEvent;
+import android.os.Bundle;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.ybg.rp.yabase.js.JavascriptObject;
-
 /**
  * Created by yangbagang on 16/8/3.
  */
 public class ActivityWebViewExtra extends Activity {
+
+    protected boolean orientationChanged = false;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Boolean oldOrientation = (Boolean) getLastNonConfigurationInstance();
+        if (oldOrientation == null) {
+            orientationChanged = false;
+        } else {
+            orientationChanged = oldOrientation.booleanValue();
+        }
+    }
+
+    @Override
+    public Object onRetainNonConfigurationInstance() {
+        return Boolean.TRUE;
+    }
 
     /**
      * 网页内容设置

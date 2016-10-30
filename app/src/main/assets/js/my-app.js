@@ -30,6 +30,7 @@ function getQueryString(name) {
 
 var basePath = getQueryString("server");
 var token = getQueryString("token");
+var orientationChanged = getQueryString("orientationChanged");
 
 $$.postJSON = function(url, data, success) {
     return $$.ajax({
@@ -59,3 +60,17 @@ var monthNames = ['一月', '二月', '三月', '四月', '五月', '六月', '�
 var dayNames = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
 var monthNamesShort = ['一', '二', '三', '四', '五', '六', '七', '八' , '九' , '十', '十一', '十二'];
 var dayNamesShort = ['日', '一', '二', '三', '四', '五', '六'];
+
+function getDefaultDate(key) {
+    if (orientationChanged == "true") {
+        var val = localStorage.getItem(key);
+        if (val == undefined || val == "" || val == "undefined") {
+            return getToday();
+        }
+        return val;
+    } else {
+        var today = getToday();
+        localStorage.setItem(key, today);
+        return today;
+    }
+}
