@@ -23,7 +23,7 @@ public class DataChartActivity extends ActivityWebViewExtra {
         initWebSetting(webView);
         YApp app = (YApp) getApplication();
         String url = "file:///android_asset/html/analysis/index.html?server=" +
-                Constants.HOST + "&token=" + app.getToken();
+                Constants.HOST + "&token=" + app.getToken() + "&orientationChanged=" + orientationChanged;
         loadUrl(webView, url);
     }
 

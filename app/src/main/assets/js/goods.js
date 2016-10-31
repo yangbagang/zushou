@@ -74,9 +74,8 @@ function selectAllStores() {
 
 //执行缺省查询
 function initSearchDate() {
-    var today = getToday();
-    $$("#calendar-begin").val(today);
-    $$("#calendar-end").val(today);
+    $$("#calendar-begin").val(getDefaultDate("calendar-begin"));
+    $$("#calendar-end").val(getDefaultDate("calendar-end"));
     queryAnalysisData();
     //开始时间选择器
     var beginCal = myApp.calendar({
@@ -87,6 +86,7 @@ function initSearchDate() {
         dayNames: dayNames,
         dayNamesShort: dayNamesShort,
         onClose: function(){
+            localStorage.setItem("calendar-begin", $$("#calendar-begin").val());
             queryAnalysisData();
         }
     });
@@ -99,6 +99,7 @@ function initSearchDate() {
         dayNames: dayNames,
         dayNamesShort: dayNamesShort,
         onClose: function(){
+            localStorage.setItem("calendar-end", $$("#calendar-end").val());
             queryAnalysisData();
         }
     });
